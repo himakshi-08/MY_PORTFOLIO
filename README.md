@@ -42,7 +42,7 @@ This portfolio is a static HTML/CSS website featuring:
 2. Or publish the repository as a static website using GitHub Pages.
 
 ## 🔗 Links
--Portfolio: 
+
 - GitHub: [github.com/himakshi-08](https://github.com/himakshi-08)
 - LinkedIn: [linkedin.com/in/himakshi-chadalavada](https://linkedin.com/in/himakshi-chadalavada)
 
