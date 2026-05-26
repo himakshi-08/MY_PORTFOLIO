@@ -43,6 +43,7 @@ This portfolio is a static HTML/CSS website featuring:
 
 ## 🔗 Links
 
+- Live Portfolio: [https://my-portfolio-eight-theta-67.vercel.app/](https://my-portfolio-eight-theta-67.vercel.app/)
 - GitHub: [github.com/himakshi-08](https://github.com/himakshi-08)
 - LinkedIn: [linkedin.com/in/himakshi-chadalavada](https://linkedin.com/in/himakshi-chadalavada)
 
