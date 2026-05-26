@@ -38,12 +38,12 @@ This portfolio is a static HTML/CSS website featuring:
 
 ## 📂 How to Use
 
-1. Open `himakshi.html` in a browser.
+1. Open `index.html` in a browser.
 2. Or publish the repository as a static website using GitHub Pages.
 
 ## 🔗 Links
 
-- Live Portfolio: [https://himakshi-chadalavada-08.vercel.app/](https://himakshi-chadalavada-08.vercel.app/)
+- Live Portfolio: [https://my-portfolio-eight-theta-67.vercel.app/](https://my-portfolio-eight-theta-67.vercel.app/)
 - GitHub: [github.com/himakshi-08](https://github.com/himakshi-08)
 - LinkedIn: [linkedin.com/in/himakshi-chadalavada](https://linkedin.com/in/himakshi-chadalavada)
 
