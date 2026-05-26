@@ -16,7 +16,7 @@ This portfolio is a static HTML/CSS website featuring:
 
 ## 🧩 Included Files
 
-- `himakshi_portfolio.html` — main portfolio website
+- `index.html` — main portfolio website
 - `HIMAKSHI_RESUME.pdf` — downloadable resume
 - `Himakshi_Portfolio.jpeg` — profile / hero section image
 - `AI_Analyzer.png`, `Arcade_Game.png`, `Neighbour_Share.png`, `Task_Manager.png` — project preview images
@@ -38,12 +38,12 @@ This portfolio is a static HTML/CSS website featuring:
 
 ## 📂 How to Use
 
-1. Open `himakshi_portfolio.html` in a browser.
+1. Open `himakshi.html` in a browser.
 2. Or publish the repository as a static website using GitHub Pages.
 
 ## 🔗 Links
 
-- Live Portfolio: [https://my-portfolio-eight-theta-67.vercel.app/](https://himakshi-chadalavada-08.vercel.app/)
+- Live Portfolio: [https://himakshi-chadalavada-08.vercel.app/](https://himakshi-chadalavada-08.vercel.app/)
 - GitHub: [github.com/himakshi-08](https://github.com/himakshi-08)
 - LinkedIn: [linkedin.com/in/himakshi-chadalavada](https://linkedin.com/in/himakshi-chadalavada)
 
