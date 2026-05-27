@@ -50,8 +50,7 @@ This portfolio is a static HTML/CSS website featuring:
 ## 📬 Contact
 
 - Email: `chhimakshi@gmail.com`
-- Phone: `+91 7601022993`
 
 ---
 
-If you'd like, I can also help you convert this portfolio into a React or static site project for easier updates and deployment.
+
