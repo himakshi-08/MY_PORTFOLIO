@@ -1,4 +1,4 @@
-# Himakshi Chadalavada Portfolio
+# Himakshi Chadalavada's Portfolio
 
 Welcome to the source for **Himakshi Chadalavada's personal portfolio website**. This repository contains a responsive single-page portfolio built with modern web design, showcasing academic achievements, technical skills, internships, open-source contributions, projects, and contact information.
 
