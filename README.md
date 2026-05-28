@@ -19,7 +19,7 @@ This portfolio is a static HTML/CSS website featuring:
 - `index.html` — main portfolio website
 - `HIMAKSHI_RESUME.pdf` — downloadable resume
 - `Himakshi_Portfolio.jpeg` — profile / hero section image
-- `AI_Analyzer.png`, `Arcade_Game.png`, `Neighbour_Share.png`, `Task_Manager.png` — project preview images
+- `AI_Analyzer.png`, `Arcade_Game.png`, `Neighbour_Share.png`, `Task_Manager.png`,`Entertania.png`, `Hotel_Booking.png` — project preview images
 
 ## 💻 Technologies Used
 
