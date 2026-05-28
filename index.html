@@ -9,6 +9,42 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
+        :root {
+            --bg-gradient: linear-gradient(to right, rgb(255, 255, 255), rgb(212, 235, 250));
+            --text-color: rgb(15, 37, 55);
+            --text-secondary: rgb(74, 98, 120);
+            --primary: rgb(30, 107, 184);
+            --primary-light: rgb(191, 219, 254);
+            --card-bg: rgba(255, 255, 255, 0.65);
+            --nav-bg: rgba(255, 255, 255, 0.8);
+            --logo-color: black;
+            --timeline-border: linear-gradient(to bottom, rgb(30, 107, 184), rgb(191, 219, 254));
+            --shadow-color: rgba(0, 0, 0, 0.05);
+            --hover-shadow: rgba(30, 107, 184, 0.2);
+            --footer-bg: rgb(15, 37, 55);
+            --footer-text: rgba(255, 255, 255, 0.8);
+            --nav-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --toggle-bg-hover: rgba(30, 107, 184, 0.1);
+        }
+
+        body.dark-theme {
+            --bg-gradient: linear-gradient(to right, rgb(10, 25, 41), rgb(16, 40, 66));
+            --text-color: rgb(220, 230, 242);
+            --text-secondary: rgb(150, 175, 200);
+            --primary: rgb(59, 140, 222);
+            --primary-light: rgb(30, 107, 184);
+            --card-bg: rgba(22, 50, 80, 0.65);
+            --nav-bg: rgba(10, 25, 41, 0.8);
+            --logo-color: white;
+            --timeline-border: linear-gradient(to bottom, rgb(59, 140, 222), rgb(16, 40, 66));
+            --shadow-color: rgba(0, 0, 0, 0.2);
+            --hover-shadow: rgba(59, 140, 222, 0.3);
+            --footer-bg: rgb(6, 17, 28);
+            --footer-text: rgba(220, 230, 242, 0.8);
+            --nav-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --toggle-bg-hover: rgba(59, 140, 222, 0.15);
+        }
+
         * {
             padding: 0;
             margin: 0;
@@ -25,9 +61,10 @@
             width: 100%;
             min-height: 100vh;
             overflow-x: hidden;
-            background: linear-gradient(to right, rgb(255, 255, 255), rgb(212, 235, 250));
-            color: rgb(15, 37, 55);
+            background: var(--bg-gradient);
+            color: var(--text-color);
             font-size: 19px; /* Set a default, highly readable font size */
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         /* 🌟 Navigation */
@@ -37,9 +74,10 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.8);
+            background: var(--nav-bg);
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--nav-shadow);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
         }
 
         .nav-container {
@@ -48,17 +86,20 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
+            position: relative;
         }
 
         .logo {
-            color: black;
+            color: var(--logo-color);
             font-size: 1.8rem;
             font-weight: 700;
+            transition: color 0.3s ease;
         }
 
         .logo span {
-            color: rgb(30, 107, 184);
-            text-shadow: 0 0 10px rgba(30, 107, 184, 0.2);
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--hover-shadow);
+            transition: color 0.3s ease, text-shadow 0.3s ease;
         }
 
         .hamburg, .cancel {
@@ -66,9 +107,10 @@
             position: absolute;
             right: 25px;
             top: 20px;
-            color: black;
+            color: var(--logo-color);
             font-size: 2rem;
             display: none;
+            transition: color 0.3s ease;
         }
 
         .nav-container .links {
@@ -80,10 +122,10 @@
         .nav-container .links a {
             position: relative;
             font-size: 1.2rem;
-            color: rgb(15, 37, 55);
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 500;
-            transition: 0.3s linear;
+            transition: color 0.3s ease;
         }
 
         .nav-container .links a::before {
@@ -93,7 +135,7 @@
             left: 0;
             width: 0%;
             height: 3px;
-            background-color: rgb(30, 107, 184);
+            background-color: var(--primary);
             transition: 0.2s linear;
         }
 
@@ -102,7 +144,29 @@
         }
 
         .nav-container .links a:hover {
-            color: rgb(30, 107, 184);
+            color: var(--primary);
+        }
+
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            color: var(--logo-color);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease, color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        .theme-toggle-btn:hover {
+            background-color: var(--toggle-bg-hover);
+            color: var(--primary);
+            transform: scale(1.1);
         }
 
         .dropdown {
@@ -138,7 +202,7 @@
         }
 
         .dropdown .links a:hover {
-            background-color: rgb(30, 107, 184);
+            background-color: var(--primary);
         }
 
         /* 🏠 HOME SECTION */
@@ -182,16 +246,16 @@
             object-fit: cover;
             object-position: center bottom;
             border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 15px 35px var(--shadow-color);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease, border-color 0.3s ease;
             cursor: pointer;
-            border: 8px solid rgba(255, 255, 255, 0.7);
+            border: 8px solid var(--card-bg);
         }
 
         .main-container .image img:hover {
             transform: scale(1.03) translateY(-10px);
-            box-shadow: 0 25px 50px rgba(30, 107, 184, 0.3);
-            border-color: rgba(30, 107, 184, 0.8);
+            box-shadow: 0 25px 50px var(--hover-shadow);
+            border-color: var(--primary);
         }
 
         .main-container .content {
@@ -203,26 +267,30 @@
             font-size: clamp(2rem, 1.5rem + 4vw, 3.8rem);
             font-weight: 700;
             line-height: 1.2;
-            color: rgb(15, 37, 55);
+            color: var(--text-color);
+            transition: color 0.3s ease;
         }
 
         .content h1 span {
-            color: rgb(30, 107, 184);
-            text-shadow: 0 0 10px rgba(30, 107, 184, 0.1);
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--hover-shadow);
+            transition: color 0.3s ease, text-shadow 0.3s ease;
         }
 
         .content .typewriter {
             font-weight: 600;
             font-size: clamp(1.4rem, 1.2rem + 1.5vw, 2.1rem);
             margin: 15px 0;
-            color: rgb(74, 98, 120);
+            color: var(--text-secondary);
             min-height: 60px; /* stable height to prevent layout shifting/jumping */
+            transition: color 0.3s ease;
         }
 
         .content .typewriter span {
-            color: rgb(30, 107, 184);
+            color: var(--primary);
             position: relative;
             display: inline-block;
+            transition: color 0.3s ease;
         }
 
         .content .typewriter span::before {
@@ -248,8 +316,9 @@
         .content .tagline {
             font-size: 1.2rem;
             line-height: 1.7;
-            color: rgb(74, 98, 120);
+            color: var(--text-secondary);
             margin: 20px 0 30px;
+            transition: color 0.3s ease;
         }
 
         .social-links {
@@ -264,41 +333,41 @@
             align-items: center;
             width: 3.2rem;
             height: 3.2rem;
-            border: 2px solid rgb(30, 107, 184);
+            border: 2px solid var(--primary);
             border-radius: 50%;
-            color: rgb(30, 107, 184);
+            color: var(--primary);
             font-size: 1.4rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease, color 0.3s ease, border-color 0.3s ease;
             text-decoration: none;
         }
 
         .social-links a:hover {
             transform: scale(1.2);
             color: white;
-            background-color: rgb(30, 107, 184);
-            box-shadow: 0 5px 15px rgba(30, 107, 184, 0.4);
+            background-color: var(--primary);
+            box-shadow: 0 5px 15px var(--hover-shadow);
         }
 
         .content button {
             padding: 12px 35px;
-            background-color: rgb(30, 107, 184);
+            background-color: var(--primary);
             color: white;
             border: 2px solid transparent;
             outline: none;
             font-size: 1.1rem;
             font-weight: 600;
             border-radius: 8px;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(30, 107, 184, 0.2);
+            box-shadow: 0 4px 12px var(--hover-shadow);
         }
 
         .content button:hover {
             transform: scale(1.05);
-            color: rgb(30, 107, 184);
-            border-color: rgb(30, 107, 184);
+            color: var(--primary);
+            border-color: var(--primary);
             background-color: transparent;
-            box-shadow: 0 8px 25px rgba(30, 107, 184, 0.4);
+            box-shadow: 0 8px 25px var(--hover-shadow);
         }
 
         /* 👩‍💻 ABOUT SECTION */
@@ -310,13 +379,14 @@
         .about-section h2, .skills-section h2, .projects-section h2, 
         .achievements-section h2, .contact-section h2, .timeline-section h2 {
             font-size: 2.3rem;
-            color: rgb(30, 107, 184);
+            color: var(--primary);
             text-align: center;
             margin-bottom: 40px;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 700;
             position: relative;
+            transition: color 0.3s ease;
         }
 
         .about-container {
@@ -336,18 +406,18 @@
             text-align: justify;
             line-height: 1.9;
             font-size: 1.25rem;
-            color: rgb(15, 37, 55);
-            background: rgba(255, 255, 255, 0.65);
+            color: var(--text-color);
+            background: var(--card-bg);
             padding: 40px 50px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            transition: all 0.3s ease, background 0.3s ease, color 0.3s ease;
             width: 100%;
         }
 
         .about-text:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(30, 107, 184, 0.2);
+            box-shadow: 0 15px 35px var(--hover-shadow);
         }
 
         .about-text p {
@@ -359,10 +429,9 @@
         }
 
         .about-text strong {
-            color: rgb(30, 107, 184);
+            color: var(--primary);
+            transition: color 0.3s ease;
         }
-
-
 
         /* 💻 SKILLS SECTION */
         .skills-section {
@@ -378,21 +447,23 @@
         }
 
         .skills-category {
-            background: rgba(255, 255, 255, 0.5);
+            background: var(--card-bg);
             border-radius: 20px;
             padding: 25px 30px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 8px 25px var(--shadow-color);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
         }
 
         .skills-category-title {
             font-size: 1.1rem;
             font-weight: 700;
-            color: rgb(30, 107, 184);
+            color: var(--primary);
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             border-bottom: 2px solid rgba(30, 107, 184, 0.1);
             padding-bottom: 5px;
+            transition: color 0.3s ease;
         }
 
         .skills-bubbles-wrapper {
@@ -402,22 +473,22 @@
         }
 
         .skill {
-            background-color: rgb(30, 107, 184);
+            background-color: var(--primary);
             color: white;
             font-weight: 600;
             padding: 10px 24px;
             border-radius: 40px;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(30, 107, 184, 0.2);
+            transition: all 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            box-shadow: 0 4px 10px var(--shadow-color);
             cursor: pointer;
         }
 
         .skill:hover {
             transform: scale(1.1) translateY(-5px);
-            background-color: rgb(191, 219, 254);
-            color: rgb(30, 107, 184);
-            box-shadow: 0 10px 20px rgba(30, 107, 184, 0.3);
+            background-color: var(--primary-light);
+            color: var(--primary);
+            box-shadow: 0 10px 20px var(--hover-shadow);
         }
 
         /* 🏛️ EDUCATION & EXPERIENCE SECTION */
@@ -439,8 +510,9 @@
             bottom: 0;
             left: 15px;
             width: 4px;
-            background: linear-gradient(to bottom, rgb(30, 107, 184), rgb(191, 219, 254));
+            background: var(--timeline-border);
             border-radius: 2px;
+            transition: background 0.3s ease;
         }
 
         .timeline-item {
@@ -457,29 +529,29 @@
             height: 16px;
             border-radius: 50%;
             background-color: white;
-            border: 4px solid rgb(30, 107, 184);
-            box-shadow: 0 0 8px rgba(30, 107, 184, 0.4);
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 8px var(--hover-shadow);
             z-index: 2;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease, border-color 0.3s ease;
         }
 
         .timeline-item:hover::before {
-            background-color: rgb(30, 107, 184);
+            background-color: var(--primary);
             transform: scale(1.25);
-            box-shadow: 0 0 12px rgba(30, 107, 184, 0.7);
+            box-shadow: 0 0 12px var(--hover-shadow);
         }
 
         .timeline-card {
-            background: rgba(255, 255, 255, 0.65);
+            background: var(--card-bg);
             border-radius: 20px;
             padding: 25px 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            transition: all 0.3s ease, background 0.3s ease, color 0.3s ease;
         }
 
         .timeline-card:hover {
             transform: translateX(8px) translateY(-3px);
-            box-shadow: 0 15px 35px rgba(30, 107, 184, 0.2);
+            box-shadow: 0 15px 35px var(--hover-shadow);
         }
 
         .timeline-head {
@@ -493,34 +565,38 @@
         .timeline-title {
             font-size: 1.35rem;
             font-weight: 700;
-            color: rgb(15, 37, 55);
+            color: var(--text-color);
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: color 0.3s ease;
         }
 
         .timeline-title i {
-            color: rgb(30, 107, 184);
+            color: var(--primary);
             font-size: 1.1rem;
+            transition: color 0.3s ease;
         }
 
         .timeline-badge {
             font-size: 0.75rem;
             font-weight: 700;
-            background: rgb(30, 107, 184);
+            background: var(--primary);
             color: white;
             padding: 4px 12px;
             border-radius: 50px;
             white-space: nowrap;
-            box-shadow: 0 2px 6px rgba(30, 107, 184, 0.2);
+            box-shadow: 0 2px 6px var(--hover-shadow);
+            transition: background 0.3s ease;
         }
 
         .timeline-subtitle {
             font-size: 1.1rem;
             font-weight: 600;
-            color: rgb(30, 107, 184);
+            color: var(--primary);
             margin-bottom: 12px;
             padding-left: 26px;
+            transition: color 0.3s ease;
         }
 
         .timeline-pts {
@@ -536,15 +612,17 @@
             gap: 8px;
             align-items: flex-start;
             font-size: 1.15rem;
-            color: rgb(74, 98, 120);
+            color: var(--text-secondary);
             line-height: 1.6;
+            transition: color 0.3s ease;
         }
 
         .timeline-pts li::before {
             content: "→";
-            color: rgb(30, 107, 184);
+            color: var(--primary);
             font-weight: 700;
             flex-shrink: 0;
+            transition: color 0.3s ease;
         }
 
         /* 🚀 PROJECTS SECTION */
@@ -554,27 +632,27 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(480px, 100%), 1fr));
             gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .project-card {
-            background-color: rgba(255, 255, 255, 0.65);
+            background-color: var(--card-bg);
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px var(--shadow-color);
             padding: 28px;
             display: flex;
             flex-direction: column;
             gap: 15px;
-            transition: all 0.3s ease;
-            border-top: 5px solid rgb(30, 107, 184);
+            transition: all 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+            border-top: 5px solid var(--primary);
         }
 
         .project-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(30, 107, 184, 0.3);
+            box-shadow: 0 15px 35px var(--hover-shadow);
         }
 
         .project-card img {
@@ -601,48 +679,52 @@
             align-items: center;
             justify-content: center;
             background: rgba(30, 107, 184, 0.1);
-            color: rgb(30, 107, 184);
+            color: var(--primary);
             border-radius: 14px;
+            transition: color 0.3s ease;
         }
 
         .project-card h3 {
             font-size: 1.45rem;
             font-weight: 700;
-            color: rgb(15, 37, 55);
+            color: var(--text-color);
+            transition: color 0.3s ease;
         }
 
         .project-stack {
             font-size: 0.8rem;
             font-weight: 700;
-            color: rgb(30, 107, 184);
+            color: var(--primary);
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            transition: color 0.3s ease;
         }
 
         .project-card p {
             font-size: 1.15rem;
-            color: rgb(74, 98, 120);
+            color: var(--text-secondary);
             line-height: 1.6;
             flex: 1;
+            transition: color 0.3s ease;
         }
 
         .project-btn {
             text-decoration: none;
-            background-color: rgb(30, 107, 184);
+            background-color: var(--primary);
             color: white;
             padding: 10px 25px;
             border-radius: 25px;
             font-weight: 600;
             align-self: flex-start;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease, background-color 0.3s ease, color 0.3s ease;
             font-size: 1rem;
-            box-shadow: 0 4px 10px rgba(30, 107, 184, 0.2);
+            box-shadow: 0 4px 10px var(--hover-shadow);
         }
 
         .project-btn:hover {
-            background-color: rgb(191, 219, 254);
-            color: rgb(30, 107, 184);
-            box-shadow: 0 6px 15px rgba(30, 107, 184, 0.3);
+            background-color: var(--primary-light);
+            color: var(--primary);
+            box-shadow: 0 6px 15px var(--hover-shadow);
         }
 
         /* 🏆 ACHIEVEMENTS & CERTIFICATIONS */
@@ -659,13 +741,13 @@
         }
 
         .achievement-card {
-            background-color: rgba(255, 255, 255, 0.65);
+            background-color: var(--card-bg);
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px var(--shadow-color);
             padding: 25px;
             text-align: center;
-            transition: all 0.3s ease;
-            border-top: 5px solid rgb(30, 107, 184);
+            transition: all 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+            border-top: 5px solid var(--primary);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -676,45 +758,48 @@
 
         .achievement-card:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(30, 107, 184, 0.3);
+            box-shadow: 0 15px 35px var(--hover-shadow);
         }
 
         .achievement-icon {
             font-size: 2.5rem;
-            color: rgb(30, 107, 184);
+            color: var(--primary);
             margin-bottom: 5px;
+            transition: color 0.3s ease;
         }
 
         .achievement-card h3 {
             font-size: 1.35rem;
             font-weight: 700;
-            color: rgb(15, 37, 55);
+            color: var(--text-color);
+            transition: color 0.3s ease;
         }
 
         .achievement-card p {
             font-size: 1.15rem;
-            color: rgb(74, 98, 120);
+            color: var(--text-secondary);
             line-height: 1.6;
             margin-bottom: 5px;
+            transition: color 0.3s ease;
         }
 
         .achievement-btn {
             text-decoration: none;
-            background-color: rgb(30, 107, 184);
+            background-color: var(--primary);
             color: white;
             padding: 8px 20px;
             border-radius: 20px;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease, background-color 0.3s ease, color 0.3s ease;
             font-size: 0.85rem;
-            box-shadow: 0 4px 10px rgba(30, 107, 184, 0.2);
+            box-shadow: 0 4px 10px var(--hover-shadow);
             margin-top: auto;
         }
 
         .achievement-btn:hover {
-            background-color: rgb(191, 219, 254);
-            color: rgb(30, 107, 184);
-            box-shadow: 0 6px 15px rgba(30, 107, 184, 0.3);
+            background-color: var(--primary-light);
+            color: var(--primary);
+            box-shadow: 0 6px 15px var(--hover-shadow);
         }
 
         /* 📞 CONTACT / CONNECT SECTION */
@@ -732,12 +817,12 @@
         }
 
         .contact-card {
-            background-color: rgba(255, 255, 255, 0.65);
+            background-color: var(--card-bg);
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px var(--shadow-color);
             padding: 25px;
-            transition: all 0.3s ease;
-            border-top: 5px solid rgb(30, 107, 184);
+            transition: all 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+            border-top: 5px solid var(--primary);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -748,44 +833,49 @@
 
         .contact-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(30, 107, 184, 0.3);
+            box-shadow: 0 15px 35px var(--hover-shadow);
         }
 
         .contact-icon {
             font-size: 2.2rem;
-            color: rgb(30, 107, 184);
+            color: var(--primary);
+            transition: color 0.3s ease;
         }
 
         .contact-card h3 {
             font-size: 1.3rem;
             font-weight: 700;
-            color: rgb(15, 37, 55);
+            color: var(--text-color);
+            transition: color 0.3s ease;
         }
 
         .contact-card p {
             font-size: 1.15rem;
-            color: rgb(74, 98, 120);
+            color: var(--text-secondary);
             word-break: break-all;
+            transition: color 0.3s ease;
         }
 
         .contact-card:hover p {
-            color: rgb(30, 107, 184);
+            color: var(--primary);
             text-decoration: underline;
         }
 
         /* 🌙 FOOTER */
         .footer-text {
-            background-color: rgb(15, 37, 55);
-            color: rgba(255, 255, 255, 0.8);
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
             text-align: center;
             padding: 25px 0;
             font-size: 0.95rem;
             width: 100%;
             margin-top: 40px;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         .footer-text strong {
-            color: rgb(30, 107, 184);
+            color: var(--primary);
+            transition: color 0.3s ease;
         }
 
         /* ── RESPONSIVE DESIGN ── */
@@ -817,8 +907,6 @@
                 justify-content: center;
             }
 
-
-
             .timeline-container {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -826,6 +914,12 @@
 
             .nav-container .links {
                 display: none;
+            }
+
+            .theme-toggle-btn {
+                position: absolute;
+                right: 80px;
+                top: 20px;
             }
 
             .hamburg {
@@ -859,6 +953,12 @@
     </style>
 </head>
 <body>
+    <script>
+        // Apply theme immediately to prevent flashing
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
 
     <!-- 🌟 Navigation -->
     <nav>
@@ -875,6 +975,9 @@
                 <div class="link"><a href="#achievements">Achievements</a></div>
                 <div class="link"><a href="#contact">Contact</a></div>
             </div>
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
             <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
         </div>
 
@@ -1103,6 +1206,22 @@
                 <p>A desktop application developed in Java Swing designed to simulate OS task scheduling. Visualizes CPU/memory states, process scheduling algorithms, and running process monitoring.</p>
                 <a href="https://github.com/himakshi-08/OS-Task-Manager-using-Java-Swing.git" target="_blank" class="project-btn">View Code</a>
             </div>
+            <!-- 5 -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                <img src="Entertainia.png" alt="Entertainia">
+                <h3>Entertainia</h3>
+                <div class="project-stack">HTML · CSS · JavaScript · PHP · MySQL</div>
+                <p>Developed a dynamic entertainment website featuring music and cartoon content with structured PHP session-based authentication and MySQL backend data storage.</p>
+                <a href="https://github.com/himakshi-08/entertainia" target="_blank" class="project-btn">View Code</a>
+            </div>
+            <!-- 6 -->
+            <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+                <img src="Hotel_Booking.png" alt="Hotel Booking System">
+                <h3>Hotel Booking System</h3>
+                <div class="project-stack">React.js · JSON Server · Axios · Context API</div>
+                <p>Built a user-friendly frontend for an online hotel reservation platform using reusable React.js components. Integrated Context API session state and Axios mock backend communication.</p>
+                <a href="https://github.com/himakshi-08/Hotel_Booking_System" target="_blank" class="project-btn">View Code</a>
+            </div>
         </div>
     </section>
 
@@ -1187,6 +1306,27 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({ offset: 0 });
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = themeToggleBtn.querySelector('i');
+
+        // Sync button icon with initial state (applied by pre-load script)
+        if (document.body.classList.contains('dark-theme')) {
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            
+            if (document.body.classList.contains('dark-theme')) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
 
         function hamburg() {
             document.querySelector(".dropdown").style.transform = "translateY(0)";
